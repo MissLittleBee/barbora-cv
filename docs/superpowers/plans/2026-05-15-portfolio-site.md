@@ -506,14 +506,14 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
 
-      - uses: cloudflare/pages-action@v1
+      - uses: cloudflare/wrangler-action@v3
         with:
           apiToken:    ${{ secrets.CF_API_TOKEN }}
           accountId:   ${{ secrets.CF_ACCOUNT_ID }}
-          projectName: barbora-cv
-          directory:   dist
-          branch:      main
+          command:     pages deploy dist --project-name=barbora-cv --branch=main
 ```
+
+> Note: `cloudflare/pages-action@v1` was deprecated mid-2025. The current path is `wrangler-action@v3` invoking `wrangler pages deploy`. Permission required on the API token: `Account → Cloudflare Pages → Edit`.
 
 - [ ] **Step 3: Push to GitHub for the first time**
 
