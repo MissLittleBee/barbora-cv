@@ -1,0 +1,27 @@
+---
+import '~/styles/global.css';
+interface Props { title?: string; description?: string; }
+const {
+  title = 'Barbora Hulová — Backend Developer',
+  description = 'Backend developer building APIs. Python, TypeScript, scalable systems.',
+} = Astro.props;
+---
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content={description} />
+  <meta name="theme-color" content="#040a07" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <meta property="og:title" content={title} />
+  <meta property="og:description" content={description} />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://barborka.party" />
+  <meta property="og:image" content="/og-image.png" />
+  <title>{title}</title>
+</head>
+<body>
+  <slot />
+</body>
+</html>

@@ -1,14 +1,9 @@
 ---
-const title = 'barborka.party';
+import Base from '~/layouts/Base.astro';
 ---
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width" />
-  <title>{title}</title>
-</head>
-<body>
-  <h1>Hello, barborka.party</h1>
-</body>
-</html>
+<Base>
+  <main class="container" style="padding-top:80px">
+    <h1>Hello, barborka.party</h1>
+    <p>Palette test: <span style="color:var(--accent)">emerald</span> on <span style="color:var(--heading)">white</span> on <span style="color:var(--body)">muted</span>.</p>
+  </main>
+</Base>
