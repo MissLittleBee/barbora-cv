@@ -9,7 +9,9 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "type-check": "astro check && tsc --noEmit"
+    "type-check": "astro check && tsc --noEmit",
+    "lint": "eslint . --ext .ts,.astro",
+    "test": "vitest run --passWithNoTests"
   },
   "keywords": [],
   "author": "",
@@ -21,6 +23,12 @@
   "devDependencies": {
     "@astrojs/check": "^0.9.9",
     "@types/node": "^25.8.0",
-    "typescript": "^5.9.3"
+    "@typescript-eslint/eslint-plugin": "^8.59.3",
+    "@typescript-eslint/parser": "^8.59.3",
+    "astro-eslint-parser": "^1.4.0",
+    "eslint": "^8.57.1",
+    "eslint-plugin-astro": "^1.7.0",
+    "typescript": "^5.9.3",
+    "vitest": "^4.1.6"
   }
 }
