@@ -1,0 +1,79 @@
+---
+import { career } from '~/lib/career.ts';
+
+function fmt(d: string): string {
+  if (d === 'present') return 'now';
+  const [y, m] = d.split('-');
+  return `${y}-${m}`;
+}
+---
+<section id="career" class="career-section">
+  <div class="container">
+    <p class="section-label"># career</p>
+    <h2 class="career-title">Where I've worked</h2>
+    <ol class="timeline">
+      {career.map((entry, i) => (
+        <li class={`timeline-item ${i === 0 ? 'is-current' : ''}`}>
+          <span class="node" aria-hidden="true"></span>
+          <div class="entry">
+            <div class="entry-head">
+              <h3 class="role">{entry.role}</h3>
+              <span class="dates mono">{fmt(entry.start)} — {fmt(entry.end)}</span>
+            </div>
+            <div class="company">{entry.company}</div>
+            <ul class="bullets">
+              {entry.bullets.map(b => <li>{b}</li>)}
+            </ul>
+            <div class="stack">
+              {entry.stack.map(s => <span class="chip mono">{s}</span>)}
+            </div>
+          </div>
+        </li>
+      ))}
+    </ol>
+  </div>
+</section>
+
+<style>
+  .career-section { padding: 80px 0; }
+  .career-title { font-size: clamp(24px, 3vw, 34px); margin-bottom: 36px; }
+
+  .timeline { list-style: none; padding: 0; margin: 0; position: relative; }
+  .timeline-item {
+    position: relative;
+    padding-left: 32px;
+    padding-bottom: 36px;
+    border-left: 2px solid var(--panel-edge);
+  }
+  .timeline-item:last-child { padding-bottom: 0; }
+
+  .node {
+    position: absolute;
+    left: -8px;
+    top: 4px;
+    width: 14px;
+    height: 14px;
+    border-radius: 999px;
+    background: var(--panel);
+    border: 2px solid var(--accent);
+  }
+  .is-current .node { background: var(--accent); box-shadow: 0 0 0 4px rgba(28, 231, 131, 0.15); }
+
+  .entry-head { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+  .role  { font-size: 18px; }
+  .dates { color: var(--accent); font-size: 12px; }
+  .company { color: var(--body); margin-top: 4px; }
+
+  .bullets { padding-left: 18px; margin: 12px 0; color: var(--body); }
+  .bullets li { margin: 4px 0; }
+
+  .stack { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 12px; }
+  .chip {
+    background: var(--panel);
+    border: 1px solid var(--panel-edge);
+    color: var(--accent-dim);
+    padding: 4px 10px;
+    border-radius: 999px;
+    font-size: 12px;
+  }
+</style>
