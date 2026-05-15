@@ -28,11 +28,8 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
 
-      - uses: cloudflare/pages-action@v1
+      - uses: cloudflare/wrangler-action@v3
         with:
-          apiToken:      ${{ secrets.CF_API_TOKEN }}
-          accountId:     ${{ secrets.CF_ACCOUNT_ID }}
-          projectName:   barbora-cv
-          directory:     dist
-          branch:        main
-          wranglerVersion: '3'
+          apiToken:    ${{ secrets.CF_API_TOKEN }}
+          accountId:   ${{ secrets.CF_ACCOUNT_ID }}
+          command:     pages deploy dist --project-name=barbora-cv --branch=main
