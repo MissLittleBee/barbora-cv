@@ -11,7 +11,7 @@
 **Prerequisites — do these before Task 1:**
 1. Node 20 LTS installed: `node --version` shows `v20.x`.
 2. Empty GitHub repo `MissLittleBee/barborka-party` exists (public).
-3. Cloudflare Pages project named `barborka-party` exists (create at dash.cloudflare.com → Workers & Pages → Create → Pages → "Direct Upload" path, leave empty for now).
+3. Cloudflare Pages project named `barbora-cv` exists (Pages, not Worker — confirmed during setup).
 4. GitHub Actions secrets configured on the repo (Settings → Secrets and variables → Actions):
    - `GH_TOKEN` — fine-grained PAT, scope: public repos, read-only metadata.
    - `CF_API_TOKEN` — Cloudflare API token with permission `Account → Cloudflare Pages → Edit`.
@@ -499,7 +499,7 @@ jobs:
         with:
           apiToken:    ${{ secrets.CF_API_TOKEN }}
           accountId:   ${{ secrets.CF_ACCOUNT_ID }}
-          projectName: barborka-party
+          projectName: barbora-cv
           directory:   dist
           branch:      main
 ```
