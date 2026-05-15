@@ -1,0 +1,91 @@
+---
+import aboutRaw from '~/content/about.md?raw';
+const bio = aboutRaw.trim();
+---
+<section id="about_me" class="hero-section">
+  <div class="container">
+    <div class="hero-panel">
+      <div class="hero-left">
+        <p class="section-label"># about_me</p>
+        <h1 class="hero-title">
+          Barbora Hulová.<br />
+          Software engineer.<br />
+          APIs &amp; IAM at Heureka.
+        </h1>
+        <p class="hero-bio">{bio}</p>
+        <div class="hero-actions">
+          <a href="#contact" class="hero-cta">Get in touch &raquo;</a>
+          <span class="hero-scroll">scroll &darr;</span>
+        </div>
+      </div>
+      <aside class="hero-code" aria-hidden="true">
+        <div class="hero-code-dots">
+          <span class="dot dot-r"></span><span class="dot dot-y"></span><span class="dot dot-g"></span>
+        </div>
+        <pre><code><span class="kw">class</span> <span class="cls">Barbora</span>:
+    <span class="prop">role</span> = <span class="str">"software engineer"</span>
+    <span class="prop">focus</span> = <span class="str">"IAM, APIs"</span>
+    <span class="prop">stack</span> = [<span class="str">"python"</span>, <span class="str">"typescript"</span>]
+    <span class="prop">teaches</span> = <span class="str">"pyladies cz"</span>
+
+    <span class="kw">def</span> <span class="fn">build</span>(<span class="prop">self</span>):
+        <span class="cmt"># keep shipping</span>
+</code></pre>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<style>
+  .hero-section { padding: 32px 0 64px; }
+  .hero-panel {
+    background: radial-gradient(ellipse at top right, #0c2a1c 0%, #06140d 50%, #040a07 100%);
+    border: 1px solid var(--panel-edge);
+    border-radius: 20px;
+    padding: clamp(32px, 5vw, 64px);
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 32px;
+    align-items: center;
+    min-height: 420px;
+  }
+  .hero-title { font-size: clamp(28px, 4.5vw, 48px); font-weight: 700; }
+  .hero-bio  { color: var(--body); max-width: 420px; margin-top: 18px; }
+  .hero-actions { margin-top: 28px; display: flex; gap: 18px; align-items: center; }
+  .hero-cta {
+    background: #fff;
+    color: var(--surface) !important;
+    padding: 12px 22px;
+    border-radius: 999px;
+    font-weight: 600;
+    font-size: 14px;
+  }
+  .hero-cta:hover { background: var(--accent-dim); text-decoration: none; }
+  .hero-scroll { font-family: var(--font-mono); font-size: 12px; color: var(--body); }
+
+  .hero-code {
+    background: #020604;
+    border: 1px solid rgba(28, 231, 131, 0.18);
+    border-radius: 14px;
+    padding: 18px;
+    box-shadow: 0 0 80px rgba(28, 231, 131, 0.12);
+    font-family: var(--font-mono);
+    font-size: 13px;
+    line-height: 1.7;
+  }
+  .hero-code pre { margin: 0; white-space: pre; overflow-x: auto; color: var(--body); }
+  .hero-code-dots { display: flex; gap: 6px; margin-bottom: 14px; }
+  .dot { width: 10px; height: 10px; border-radius: 999px; display: inline-block; }
+  .dot-r { background: #ef4444; } .dot-y { background: #f59e0b; } .dot-g { background: #1ce783; }
+  .kw  { color: var(--accent-dim); }
+  .cls { color: #fff; }
+  .prop{ color: var(--accent); }
+  .str { color: #e6f4ee; }
+  .fn  { color: #fff; }
+  .cmt { color: var(--body); }
+
+  @media (max-width: 900px) {
+    .hero-panel { grid-template-columns: 1fr; }
+    .hero-code { font-size: 12px; }
+  }
+</style>
