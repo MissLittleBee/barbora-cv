@@ -651,7 +651,7 @@ git commit -m "feat: sticky nav with section anchors"
 - [ ] **Step 1: Create `src/content/about.md`**
 
 ```markdown
-Python by trade, picking up TypeScript, curious about scalable systems and clean data flow.
+Software engineer at Heureka Group, building IAM systems — token-based auth, API integrations, the boring-but-critical glue between services. Python first, more TypeScript every week. Outside work: teaching Python with PyLadies CZ and helping organize PyCon CZ. The "green one" — career pivot from pharmacy to tech via a Python script for price tags.
 ```
 
 - [ ] **Step 2: Create `src/components/Hero.astro`**
@@ -668,8 +668,8 @@ const bio = aboutRaw.trim();
         <p class="section-label"># about_me</p>
         <h1 class="hero-title">
           Barbora Hulová.<br />
-          Backend developer<br />
-          building APIs.
+          Software engineer.<br />
+          APIs &amp; IAM at Heureka.
         </h1>
         <p class="hero-bio">{bio}</p>
         <div class="hero-actions">
@@ -682,9 +682,10 @@ const bio = aboutRaw.trim();
           <span class="dot dot-r"></span><span class="dot dot-y"></span><span class="dot dot-g"></span>
         </div>
         <pre><code><span class="kw">class</span> <span class="cls">Barbora</span>:
-    <span class="prop">role</span> = <span class="str">"backend dev"</span>
+    <span class="prop">role</span> = <span class="str">"software engineer"</span>
+    <span class="prop">focus</span> = <span class="str">"IAM, APIs"</span>
     <span class="prop">stack</span> = [<span class="str">"python"</span>, <span class="str">"typescript"</span>]
-    <span class="prop">curious_about</span> = <span class="str">"scalable systems"</span>
+    <span class="prop">teaches</span> = <span class="str">"pyladies cz"</span>
 
     <span class="kw">def</span> <span class="fn">build</span>(<span class="prop">self</span>):
         <span class="cmt"># keep shipping</span>
@@ -802,17 +803,73 @@ export type CareerEntry = {
 
 export const career: CareerEntry[] = [
   {
-    role: 'Backend Developer',
+    role: 'Software Engineer',
     company: 'Heureka Group',
-    start: '2024-01',
+    start: '2026-01',
     end: 'present',
     bullets: [
-      'Build and maintain internal APIs.',
-      'Improve observability and reliability of data services.',
+      'Designing and implementing IAM solutions — secure, scalable systems bridging internal and external services in the Heureka ecosystem.',
+      'Security, token-based authorization, API integrations.',
+      'System reliability via Grafana, Loki, Sentry.',
+      'Advocate for refactoring, documentation, and automated testing.',
     ],
-    stack: ['Python', 'TypeScript', 'PostgreSQL'],
+    stack: ['Python', 'TypeScript', 'Docker', 'Kubernetes', 'Terraform', 'GCP', 'MongoDB', 'MySQL', 'GitLab CI/CD'],
   },
-  // Add more entries here; first entry is treated as "current" (green node).
+  {
+    role: 'Lecturer (volunteer)',
+    company: 'PyLadies CZ',
+    start: '2023-05',
+    end: 'present',
+    bullets: [
+      'Teaching women and girls Python fundamentals and algorithmic thinking.',
+      'Iteratively improving curriculum with modern tooling and best practices.',
+      'Building a more diverse Czech tech community.',
+    ],
+    stack: ['Python', 'Algorithms', 'Mentoring'],
+  },
+  {
+    role: 'Test Automation Engineer',
+    company: 'Eurosoftware',
+    start: '2025-06',
+    end: '2026-01',
+    bullets: [
+      'Implemented and maintained automated test solutions for enterprise products.',
+      'Improved test coverage and collaborated with dev + QA on delivery pipelines.',
+    ],
+    stack: ['Test Automation', 'QA', 'CI/CD'],
+  },
+  {
+    role: 'Python Trainee',
+    company: 'Orgis IT',
+    start: '2025-02',
+    end: '2025-06',
+    bullets: [
+      'Three-month internship focused on modern technologies and backend development in Python.',
+    ],
+    stack: ['Python', 'PostgreSQL'],
+  },
+  {
+    role: 'C++ Developer & IT Consultant',
+    company: 'Medicalc software',
+    start: '2024-09',
+    end: '2025-02',
+    bullets: [
+      'Hospital information system development in C++.',
+      'Earlier: requirements analysis, customer-facing implementation, manual + integration testing.',
+    ],
+    stack: ['C++', 'PostgreSQL', 'Integration Testing'],
+  },
+  {
+    role: 'Pharmaceutical Technician',
+    company: 'Plzeňská lékárna k.s.',
+    start: '2018-07',
+    end: '2024-09',
+    bullets: [
+      'Six years preparing medicines, supporting patients, running a small lab.',
+      'Wrote a Python tool (during PyLadies advanced course) automating pharmacy price tags — the career pivot into tech.',
+    ],
+    stack: ['Pharmacy', 'Python (early)'],
+  },
 ];
 ```
 
