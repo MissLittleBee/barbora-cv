@@ -1,6 +1,6 @@
 # barborka.party
 
-Personal CV / portfolio for Barbora Hulová ([github.com/MissLittleBee](https://github.com/MissLittleBee)). Deployed to https://barborka.party.
+Personal CV / portfolio for Barbora Hůlová ([github.com/MissLittleBee](https://github.com/MissLittleBee)). Deployed to https://barborka.party.
 
 ## Local development
 
@@ -19,4 +19,3 @@ npm run preview     # serve dist/ locally
 ## Tech
 
 Astro + TypeScript. Deployed via GitHub Actions to Cloudflare Pages.
-See `docs/superpowers/specs/` and `docs/superpowers/plans/` for design notes.
