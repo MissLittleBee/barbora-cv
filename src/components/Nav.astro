@@ -1,0 +1,64 @@
+---
+const sections = [
+  { id: 'about_me', label: '#about' },
+  { id: 'career',   label: '#career' },
+  { id: 'my_work',  label: '#my_work' },
+];
+---
+<nav class="nav">
+  <div class="nav-inner container">
+    <a href="#about_me" class="nav-brand">BARBORKA.PARTY</a>
+    <div class="nav-links">
+      {sections.map(s => (
+        <a href={`#${s.id}`}>{s.label}</a>
+      ))}
+      <a href="#contact" class="nav-cta">#contact &raquo;</a>
+    </div>
+  </div>
+</nav>
+
+<style>
+  .nav {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: rgba(4, 10, 7, 0.85);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--panel-edge);
+  }
+  .nav-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 0;
+  }
+  .nav-brand {
+    color: var(--heading);
+    font-family: var(--font-mono);
+    font-weight: 700;
+    letter-spacing: 1px;
+    font-size: 14px;
+  }
+  .nav-links {
+    display: flex;
+    gap: 28px;
+    align-items: center;
+    font-family: var(--font-mono);
+    font-size: 13px;
+  }
+  .nav-links a { color: var(--body); }
+  .nav-links a:hover { color: var(--accent); text-decoration: none; }
+  .nav-cta {
+    background: #fff;
+    color: var(--surface) !important;
+    padding: 8px 16px;
+    border-radius: 999px;
+    font-weight: 600;
+  }
+  .nav-cta:hover { background: var(--accent-dim); }
+
+  @media (max-width: 640px) {
+    .nav-links { gap: 14px; font-size: 12px; }
+    .nav-links a:not(.nav-cta) { display: none; }
+  }
+</style>

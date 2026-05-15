@@ -1,9 +1,13 @@
 ---
 import Base from '~/layouts/Base.astro';
+import Nav from '~/components/Nav.astro';
 ---
 <Base>
-  <main class="container" style="padding-top:80px">
-    <h1>Hello, barborka.party</h1>
-    <p>Palette test: <span style="color:var(--accent)">emerald</span> on <span style="color:var(--heading)">white</span> on <span style="color:var(--body)">muted</span>.</p>
+  <Nav />
+  <main>
+    <section id="about_me" class="container" style="padding:120px 0">
+      <p class="section-label"># about_me</p>
+      <h1 style="font-size:clamp(32px,5vw,52px)">Nav placeholder — sections coming.</h1>
+    </section>
   </main>
 </Base>
