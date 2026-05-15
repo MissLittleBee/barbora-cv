@@ -27,7 +27,7 @@ export const career: CareerEntry[] = [
     start: '2023-05',
     end: 'present',
     bullets: [
-      'Teaching women and girls Python fundamentals and algorithmic thinking.',
+      'Teaching women and girls Python fundamentals and basics of programming.',
       'Iteratively improving curriculum with modern tooling and best practices.',
       'Building a more diverse Czech tech community.',
     ],
@@ -35,14 +35,14 @@ export const career: CareerEntry[] = [
   },
   {
     role: 'Test Automation Engineer',
-    company: 'Eurosoftware',
+    company: 'GK Software',
     start: '2025-06',
     end: '2026-01',
     bullets: [
       'Implemented and maintained automated test solutions for enterprise products.',
-      'Improved test coverage and collaborated with dev + QA on delivery pipelines.',
+      'Improved test coverage and collaborated with dev + QA.',
     ],
-    stack: ['Test Automation', 'QA', 'CI/CD'],
+    stack: ['Test Automation', 'QA', 'QFT'],
   },
   {
     role: 'Python Trainee',
@@ -52,7 +52,7 @@ export const career: CareerEntry[] = [
     bullets: [
       'Three-month internship focused on modern technologies and backend development in Python.',
     ],
-    stack: ['Python', 'PostgreSQL'],
+    stack: ['Python', 'PostgreSQL','Odoo', 'Git', 'Linux'],
   },
   {
     role: 'C++ Developer & IT Consultant',
@@ -61,19 +61,20 @@ export const career: CareerEntry[] = [
     end: '2025-02',
     bullets: [
       'Hospital information system development in C++.',
-      'Earlier: requirements analysis, customer-facing implementation, manual + integration testing.',
+      'Participation in the implementation of our system in medical facilities.',
+      'Earlier: manual tester and consultant,requirements analysis, customer-facing implementation,',
     ],
     stack: ['C++', 'PostgreSQL', 'Integration Testing'],
   },
   {
     role: 'Pharmaceutical Technician',
-    company: 'Plzeňská lékárna k.s.',
+    company: 'Plzeňská lékárna k.s. - Lipová lékárna',
     start: '2018-07',
     end: '2024-09',
     bullets: [
       'Six years preparing medicines, supporting patients, running a small lab.',
       'Wrote a Python tool (during PyLadies advanced course) automating pharmacy price tags — the career pivot into tech.',
     ],
-    stack: ['Pharmacy', 'Python (early)'],
+    stack: ['Pharmacy', 'IPLP', 'Python (early)'],
   },
 ];
