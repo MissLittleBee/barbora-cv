@@ -1,22 +1,25 @@
 ---
 import aboutRaw from '~/content/about.md?raw';
+import Reveal from '~/components/Reveal.astro';
 const bio = aboutRaw.trim();
 ---
 <section id="about_me" class="hero-section">
   <div class="container">
     <div class="hero-panel">
       <div class="hero-left">
-        <p class="section-label"># about_me</p>
-        <h1 class="hero-title">
-          Barbora Hulová.<br />
-          Software engineer.<br />
-          APIs &amp; IAM at Heureka.
-        </h1>
-        <p class="hero-bio">{bio}</p>
-        <div class="hero-actions">
-          <a href="#contact" class="hero-cta">Get in touch &raquo;</a>
-          <span class="hero-scroll">scroll &darr;</span>
-        </div>
+        <Reveal>
+          <p class="section-label"># about_me</p>
+          <h1 class="hero-title">
+            Barbora Hulová.<br />
+            Software engineer.<br />
+            APIs &amp; IAM at Heureka.
+          </h1>
+          <p class="hero-bio">{bio}</p>
+          <div class="hero-actions">
+            <a href="#contact" class="hero-cta">Get in touch &raquo;</a>
+            <span class="hero-scroll">scroll &darr;</span>
+          </div>
+        </Reveal>
       </div>
       <aside class="hero-code" aria-hidden="true">
         <div class="hero-code-dots">
@@ -25,8 +28,8 @@ const bio = aboutRaw.trim();
         <pre><code><span class="kw">class</span> <span class="cls">Barbora</span>:
     <span class="prop">role</span> = <span class="str">"software engineer"</span>
     <span class="prop">focus</span> = <span class="str">"IAM, APIs"</span>
-    <span class="prop">stack</span> = [<span class="str">"python"</span>, <span class="str">"typescript"</span>]
-    <span class="prop">teaches</span> = <span class="str">"pyladies cz"</span>
+    <span class="prop">stack</span> = [<span class="str">"typescrip"</span>, <span class="str">"python"</span>]
+    <span class="prop">organizer</span> = <span class="str">"pycon cz 2027"</span>
 
     <span class="kw">def</span> <span class="fn">build</span>(<span class="prop">self</span>):
         <span class="cmt"># keep shipping</span>

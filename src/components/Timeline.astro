@@ -1,5 +1,6 @@
 ---
 import { career } from '~/lib/career.ts';
+import Reveal from '~/components/Reveal.astro';
 
 function fmt(d: string): string {
   if (d === 'present') return 'now';
@@ -11,26 +12,28 @@ function fmt(d: string): string {
   <div class="container">
     <p class="section-label"># career</p>
     <h2 class="career-title">Where I've worked</h2>
-    <ol class="timeline">
-      {career.map((entry, i) => (
-        <li class={`timeline-item ${i === 0 ? 'is-current' : ''}`}>
-          <span class="node" aria-hidden="true"></span>
-          <div class="entry">
-            <div class="entry-head">
-              <h3 class="role">{entry.role}</h3>
-              <span class="dates mono">{fmt(entry.start)} — {fmt(entry.end)}</span>
+    <Reveal>
+      <ol class="timeline">
+        {career.map((entry, i) => (
+          <li class={`timeline-item ${i === 0 ? 'is-current' : ''}`}>
+            <span class="node" aria-hidden="true"></span>
+            <div class="entry">
+              <div class="entry-head">
+                <h3 class="role">{entry.role}</h3>
+                <span class="dates mono">{fmt(entry.start)} — {fmt(entry.end)}</span>
+              </div>
+              <div class="company">{entry.company}</div>
+              <ul class="bullets">
+                {entry.bullets.map(b => <li>{b}</li>)}
+              </ul>
+              <div class="stack">
+                {entry.stack.map(s => <span class="chip mono">{s}</span>)}
+              </div>
             </div>
-            <div class="company">{entry.company}</div>
-            <ul class="bullets">
-              {entry.bullets.map(b => <li>{b}</li>)}
-            </ul>
-            <div class="stack">
-              {entry.stack.map(s => <span class="chip mono">{s}</span>)}
-            </div>
-          </div>
-        </li>
-      ))}
-    </ol>
+          </li>
+        ))}
+      </ol>
+    </Reveal>
   </div>
 </section>
 

@@ -1,4 +1,5 @@
 ---
+import Reveal from '~/components/Reveal.astro';
 const links = [
   { label: 'email',    value: 'barbora.hulova@heureka.group', href: 'mailto:barbora.hulova@heureka.group' },
   { label: 'github',   value: '@MissLittleBee',               href: 'https://github.com/MissLittleBee' },
@@ -7,19 +8,21 @@ const links = [
 ---
 <section id="contact" class="contact-section">
   <div class="container">
-    <p class="section-label"># contact</p>
-    <h2 class="contact-title">Let's talk.</h2>
-    <ul class="contact-list mono">
-      {links.map(l => (
-        <li>
-          <span class="contact-key">{l.label} =</span>
-          <a href={l.href} target={l.href.startsWith('http') ? '_blank' : undefined} rel="noopener noreferrer">"{l.value}"</a>
-        </li>
-      ))}
-    </ul>
-    <a class="cv-button" href="/cv.pdf" download>
-      Download CV (PDF) &darr;
-    </a>
+    <Reveal>
+      <p class="section-label"># contact</p>
+      <h2 class="contact-title">Let's talk.</h2>
+      <ul class="contact-list mono">
+        {links.map(l => (
+          <li>
+            <span class="contact-key">{l.label} =</span>
+            <a href={l.href} target={l.href.startsWith('http') ? '_blank' : undefined} rel="noopener noreferrer">"{l.value}"</a>
+          </li>
+        ))}
+      </ul>
+      <a class="cv-button" href="/cv.pdf" download>
+        Download CV (PDF) &darr;
+      </a>
+    </Reveal>
   </div>
 </section>
 

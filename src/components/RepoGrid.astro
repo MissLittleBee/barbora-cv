@@ -1,6 +1,7 @@
 ---
 import { fetchPortfolioRepos, type Repo } from '~/lib/github.ts';
 import RepoCard from './RepoCard.astro';
+import Reveal from '~/components/Reveal.astro';
 
 let repos: Repo[] = [];
 let error: string | null = null;
@@ -18,7 +19,11 @@ try {
     {error && <p class="work-error">Could not fetch repos at build time: {error}</p>}
     {!error && repos.length === 0 && <p class="work-error">No repos tagged <code>portfolio</code> yet.</p>}
     <div class="repo-grid">
-      {repos.map(r => <RepoCard repo={r} />)}
+      {repos.map((r, i) => (
+        <Reveal delay={i * 80}>
+          <RepoCard repo={r} />
+        </Reveal>
+      ))}
     </div>
   </div>
 </section>
