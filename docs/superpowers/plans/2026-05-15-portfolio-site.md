@@ -10,7 +10,7 @@
 
 **Prerequisites — do these before Task 1:**
 1. Node 20 LTS installed: `node --version` shows `v20.x`.
-2. Empty GitHub repo `MissLittleBee/barborka-party` exists (public).
+2. Empty GitHub repo `MissLittleBee/barbora-cv` exists (public).
 3. Cloudflare Pages project named `barbora-cv` exists (Pages, not Worker — confirmed during setup).
 4. GitHub Actions secrets configured on the repo (Settings → Secrets and variables → Actions):
    - `GH_TOKEN` — fine-grained PAT, scope: public repos, read-only metadata.
@@ -510,14 +510,14 @@ jobs:
 git add .github/ public/
 git commit -m "ci: add deploy workflow + favicon"
 git branch -M main
-git remote add origin git@github.com:MissLittleBee/barborka-party.git
+git remote add origin git@github.com:MissLittleBee/barbora-cv.git
 git push -u origin main
 ```
 Expected: push succeeds.
 
 - [ ] **Step 4: Watch the Actions run**
 
-Open `https://github.com/MissLittleBee/barborka-party/actions`. Expected: workflow named `deploy` runs, all five script steps green, deploy step succeeds.
+Open `https://github.com/MissLittleBee/barbora-cv/actions`. Expected: workflow named `deploy` runs, all five script steps green, deploy step succeeds.
 
 - [ ] **Step 5: Attach custom domain in Cloudflare**
 
@@ -1434,7 +1434,7 @@ git push origin main
 
 - [ ] **Step 2: Watch GitHub Actions**
 
-Open `https://github.com/MissLittleBee/barborka-party/actions`. Expected: all five script gates green, deploy step green.
+Open `https://github.com/MissLittleBee/barbora-cv/actions`. Expected: all five script gates green, deploy step green.
 
 - [ ] **Step 3: Visual smoke check on `https://barborka.party`**
 
