@@ -1,0 +1,36 @@
+---
+import { fetchPortfolioRepos, type Repo } from '~/lib/github.ts';
+import RepoCard from './RepoCard.astro';
+
+let repos: Repo[] = [];
+let error: string | null = null;
+try {
+  repos = await fetchPortfolioRepos();
+} catch (e) {
+  error = e instanceof Error ? e.message : 'unknown error';
+}
+---
+<section id="my_work" class="work-section">
+  <div class="container">
+    <p class="section-label"># my_work</p>
+    <h2 class="work-title">Selected public repos</h2>
+    <p class="work-hint">Tagged <code>portfolio</code> on <a href="https://github.com/MissLittleBee" target="_blank" rel="noopener noreferrer">github.com/MissLittleBee</a>.</p>
+    {error && <p class="work-error">Could not fetch repos at build time: {error}</p>}
+    {!error && repos.length === 0 && <p class="work-error">No repos tagged <code>portfolio</code> yet.</p>}
+    <div class="repo-grid">
+      {repos.map(r => <RepoCard repo={r} />)}
+    </div>
+  </div>
+</section>
+
+<style>
+  .work-section { padding: 80px 0; }
+  .work-title { font-size: clamp(24px, 3vw, 34px); margin-bottom: 12px; }
+  .work-hint  { margin-bottom: 28px; }
+  .work-error { color: #ef4444; margin: 12px 0; }
+  .repo-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 18px;
+  }
+</style>

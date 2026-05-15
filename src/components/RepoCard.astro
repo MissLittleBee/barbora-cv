@@ -1,0 +1,43 @@
+---
+import type { Repo } from '~/lib/github.ts';
+interface Props { repo: Repo; }
+const { repo } = Astro.props;
+
+function ago(iso: string): string {
+  const days = Math.floor((Date.now() - +new Date(iso)) / 86400000);
+  if (days < 1) return 'today';
+  if (days < 30) return `${days}d ago`;
+  const months = Math.floor(days / 30);
+  if (months < 12) return `${months}mo ago`;
+  return `${Math.floor(months / 12)}y ago`;
+}
+---
+<a class="repo-card" href={repo.html_url} target="_blank" rel="noopener noreferrer">
+  <h3 class="repo-name mono">{repo.name}</h3>
+  {repo.description && <p class="repo-desc">{repo.description}</p>}
+  <div class="repo-meta mono">
+    <span>★ {repo.stargazers_count}</span>
+    {repo.language && <span>● {repo.language}</span>}
+    <span>updated {ago(repo.updated_at)}</span>
+  </div>
+</a>
+
+<style>
+  .repo-card {
+    display: block;
+    background: var(--panel);
+    border: 1px solid var(--panel-edge);
+    border-radius: 10px;
+    padding: 20px;
+    color: var(--body) !important;
+    transition: border-color 0.2s, transform 0.2s;
+  }
+  .repo-card:hover {
+    border-color: rgba(28, 231, 131, 0.4);
+    transform: translateY(-2px);
+    text-decoration: none;
+  }
+  .repo-name { color: var(--heading); font-size: 16px; font-weight: 600; }
+  .repo-desc { margin: 8px 0 14px; font-size: 14px; }
+  .repo-meta { display: flex; gap: 14px; flex-wrap: wrap; font-size: 12px; color: var(--accent-dim); }
+</style>
