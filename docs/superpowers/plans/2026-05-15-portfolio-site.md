@@ -9,7 +9,7 @@
 **Tech Stack:** Astro 4+, TypeScript 5+, Vitest, ESLint, `@fontsource/inter`, `@fontsource/jetbrains-mono`, GitHub Actions, `cloudflare/pages-action@v1`.
 
 **Prerequisites — do these before Task 1:**
-1. Node 20 LTS installed: `node --version` shows `v20.x`.
+1. Node 22 LTS installed: `node --version` shows `v22.x` (Astro 6 requires ≥ 22.12.0).
 2. Empty GitHub repo `MissLittleBee/barbora-cv` exists (public).
 3. Cloudflare Pages project named `barbora-cv` exists (Pages, not Worker — confirmed during setup).
 4. GitHub Actions secrets configured on the repo (Settings → Secrets and variables → Actions):
@@ -214,8 +214,17 @@ git commit -m "chore: bootstrap Astro + TypeScript project"
 ## Task 2: Set up linting and test runner
 
 **Files:**
-- Create: `.eslintrc.cjs`, `vitest.config.ts`
+- Create: `.eslintrc.cjs`, `vitest.config.ts`, `.nvmrc`
 - Modify: `package.json` (add scripts and devDeps)
+
+- [ ] **Step 0: Pin Node version with `.nvmrc`**
+
+Create `.nvmrc` at repo root with content:
+```
+22
+```
+
+Why: Astro 6 (the version installed in Task 1) requires Node ≥ 22.12.0. Pinning here keeps local dev, CI, and contributors aligned. Verify with `node --version` shows v22.x (use `nvm use` if available).
 
 - [ ] **Step 1: Install ESLint + Vitest**
 
@@ -288,8 +297,10 @@ Expected: `lint` exits 0 with no errors (no source files to lint yet), `test` ex
 - [ ] **Step 7: Commit**
 
 ```bash
-git add .eslintrc.cjs vitest.config.ts package.json package-lock.json
-git commit -m "chore: add eslint + vitest"
+git add .nvmrc .eslintrc.cjs vitest.config.ts package.json package-lock.json
+git -c user.email=barbora.hulova@heureka.group -c user.name="Barbora Hulová" commit -m "chore: pin Node 22, add eslint + vitest
+
+Co-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>"
 ```
 
 ---
@@ -482,7 +493,7 @@ jobs:
 
       - uses: actions/setup-node@v4
         with:
-          node-version: '20'
+          node-version-file: '.nvmrc'
           cache: 'npm'
 
       - run: npm ci
